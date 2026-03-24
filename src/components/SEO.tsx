@@ -16,6 +16,9 @@ export default function SEO(props: SEOMeta) {
       <meta property="og:title" content={s.title} />
       <meta property="og:description" content={s.description} />
       <meta property="og:image" content={s.image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:url" content={s.url} />
 
       {/* Twitter */}
