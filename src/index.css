@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body { background: #FAF9F6; color: #1A1814; font-family: 'Inter', system-ui, sans-serif; }
+}
+
+@layer components {
+  .headline { font-family: 'DM Serif Display', Georgia, serif; }
+  .category-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 2px 7px;
+    color: white;
+    background: #C2611F;
+    border-radius: 2px;
+    line-height: 1.7;
+  }
+  .prose-article p   { margin-bottom: 1.6em; line-height: 1.8; }
+  .prose-article h2  { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; margin-top: 2.5em; margin-bottom: 0.75em; line-height: 1.2; }
+  .prose-article h3  { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.2rem; margin-top: 2em; margin-bottom: 0.5em; }
+  .prose-article a   { color: #C2611F; text-decoration: underline; text-underline-offset: 2px; }
+  .prose-article blockquote { border-left: 2px solid #C2611F; padding-left: 1.25rem; margin: 2em 0; color: #706B61; font-style: italic; }
+  .btn-primary { display: inline-block; padding: 10px 24px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: white; background: #1A1814; border-radius: 2px; transition: opacity 0.15s; cursor: pointer; border: none; }
+  .btn-primary:hover { opacity: 0.75; }
+  .btn-primary:disabled { opacity: 0.4; }
+  .input-field { width: 100%; border: 1px solid #E8E4DC; background: white; padding: 10px 16px; font-size: 14px; color: #1A1814; font-family: 'Inter', sans-serif; border-radius: 2px; outline: none; transition: border-color 0.15s; }
+  .input-field::placeholder { color: #B0A99E; }
+  .input-field:focus { border-color: #1A1814; }
+  .input-label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #706B61; margin-bottom: 6px; }
+}
