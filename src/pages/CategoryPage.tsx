@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useArticles } from "@/hooks/useArticles";
 import ArticleCard from "@/components/news/ArticleCard";
+import SEO from "@/components/SEO";
 
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -9,7 +10,8 @@ export default function CategoryPage() {
 
   return (
     <div>
-      <div className="mb-10 pb-6 border-b border-border">
+      <SEO title={name} description={`Latest AI news in ${name}. Read the most recent stories from AgentNews.`} url={`/categories/${slug}`} />
+      <div className="mb-10 pb-6" style={{ borderBottom: "1px solid var(--border)" }}>
         <p className="text-xs text-ink-muted mb-2"><Link to="/categories" className="hover:text-ink">Topics</Link> / {name}</p>
         <h1 className="headline text-4xl leading-tight" style={{letterSpacing:"-0.02em"}}>{name}</h1>
         {data && <p className="text-sm text-ink-muted mt-1">{data.meta.total} stories</p>}

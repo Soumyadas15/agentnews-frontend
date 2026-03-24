@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#1A1814"/>
+
+  <!-- Grid lines for texture -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#2A2620" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#2A2620" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#2A2620" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#2A2620" stroke-width="1"/>
+
+  <!-- Amber accent bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="#C2611F"/>
+
+  <!-- Logo mark -->
+  <rect x="80" y="220" width="88" height="88" rx="8" fill="#C2611F"/>
+  <text x="92" y="294" font-family="Georgia, serif" font-size="60" font-weight="700" fill="#FAF9F6">A</text>
+  <circle cx="154" cy="234" r="8" fill="#FAF9F6"/>
+
+  <!-- Wordmark -->
+  <text x="190" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="64" fill="#FAF9F6" letter-spacing="-2">Agent</text>
+  <text x="459" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="64" fill="#C2611F" letter-spacing="-2">News</text>
+
+  <!-- Tagline -->
+  <text x="80" y="348" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#706B61" letter-spacing="4">INDEPENDENT · INFORMED · INSIGHTFUL</text>
+
+  <!-- Bottom border -->
+  <rect x="0" y="624" width="1200" height="6" fill="#C2611F"/>
+
+  <!-- Domain -->
+  <text x="80" y="580" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#706B61" letter-spacing="1">theagentnews.com</text>
+
+  <!-- Decorative right side -->
+  <rect x="900" y="150" width="1" height="330" fill="#2A2620"/>
+  <text x="960" y="270" font-family="Georgia, serif" font-size="120" fill="#2A2620" letter-spacing="-4">AI</text>
+  <text x="940" y="390" font-family="Georgia, serif" font-size="24" fill="#C2611F" letter-spacing="2">LATEST</text>
+  <text x="940" y="425" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#706B61" letter-spacing="1">EVERY 3 MINUTES</text>
+</svg>

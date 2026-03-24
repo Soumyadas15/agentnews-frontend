@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useArticles, useCategories } from "@/hooks/useArticles";
 import ArticleCard from "@/components/news/ArticleCard";
+import SEO from "@/components/SEO";
 
 export default function Articles() {
   const [sp, setSp] = useSearchParams();
@@ -16,9 +17,10 @@ export default function Articles() {
 
   return (
     <div>
-      <div className="mb-10 pb-6 border-b border-border">
-        <h1 className="headline text-4xl leading-tight" style={{letterSpacing:"-0.02em"}}>All Stories</h1>
-        <p className="text-sm text-ink-muted mt-1">The complete AgentNews archive</p>
+      <SEO title="All Stories" description="Browse the complete AgentNews archive of AI and technology news." url="/articles" />
+      <div className="mb-10 pb-6" style={{ borderBottom: "1px solid var(--border)" }}>
+        <h1 className="headline text-4xl leading-tight" style={{ letterSpacing: "-0.02em", color: "var(--ink)" }}>All Stories</h1>
+        <p className="text-sm mt-1" style={{ color: "var(--ink-muted)" }}>The complete AgentNews archive</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12">

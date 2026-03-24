@@ -3,13 +3,52 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── CSS custom properties (light + dark) ────────────────────── */
+:root {
+  --bg:           #FAF9F6;
+  --bg-surface:   #FFFFFF;
+  --bg-alt:       #F4F3EF;
+  --border:       #E8E4DC;
+  --border-strong:#D4CFC5;
+  --ink:          #1A1814;
+  --ink-muted:    #706B61;
+  --ink-faint:    #B0A99E;
+  --amber:        #C2611F;
+  --amber-hover:  #A3511A;
+  --ticker-bg:    #1A1814;
+  --ticker-text:  #FAF9F6;
+}
+
+.dark {
+  --bg:           #0F0E0C;
+  --bg-surface:   #1A1814;
+  --bg-alt:       #211F1B;
+  --border:       #2E2B25;
+  --border-strong:#3D3930;
+  --ink:          #F0EDE8;
+  --ink-muted:    #9E9890;
+  --ink-faint:    #5A5650;
+  --amber:        #D4742A;
+  --amber-hover:  #C2611F;
+  --ticker-bg:    #C2611F;
+  --ticker-text:  #FAF9F6;
+}
+
 @layer base {
-  html { -webkit-font-smoothing: antialiased; }
-  body { background: #FAF9F6; color: #1A1814; font-family: 'Inter', system-ui, sans-serif; }
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
 }
 
 @layer components {
+  /* ── Typography ───────────────────────────────────────────── */
   .headline { font-family: 'DM Serif Display', Georgia, serif; }
+
+  /* ── Category tag ─────────────────────────────────────────── */
   .category-tag {
     display: inline-block;
     font-size: 10px;
@@ -18,20 +57,157 @@
     letter-spacing: 0.12em;
     padding: 2px 7px;
     color: white;
-    background: #C2611F;
+    background: var(--amber);
     border-radius: 2px;
     line-height: 1.7;
   }
-  .prose-article p   { margin-bottom: 1.6em; line-height: 1.8; }
-  .prose-article h2  { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; margin-top: 2.5em; margin-bottom: 0.75em; line-height: 1.2; }
-  .prose-article h3  { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.2rem; margin-top: 2em; margin-bottom: 0.5em; }
-  .prose-article a   { color: #C2611F; text-decoration: underline; text-underline-offset: 2px; }
-  .prose-article blockquote { border-left: 2px solid #C2611F; padding-left: 1.25rem; margin: 2em 0; color: #706B61; font-style: italic; }
-  .btn-primary { display: inline-block; padding: 10px 24px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: white; background: #1A1814; border-radius: 2px; transition: opacity 0.15s; cursor: pointer; border: none; }
+
+  /* ── AI sourced badge ─────────────────────────────────────── */
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    color: var(--ink-muted);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    line-height: 1.7;
+  }
+
+  /* ── Article prose ────────────────────────────────────────── */
+  .prose-article p   { margin-bottom: 1.6em; line-height: 1.8; color: var(--ink); }
+  .prose-article h2  { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; margin-top: 2.5em; margin-bottom: 0.75em; line-height: 1.2; color: var(--ink); }
+  .prose-article h3  { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.2rem; margin-top: 2em; margin-bottom: 0.5em; color: var(--ink); }
+  .prose-article a   { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+  .prose-article blockquote { border-left: 2px solid var(--amber); padding-left: 1.25rem; margin: 2em 0; color: var(--ink-muted); font-style: italic; }
+  .prose-article ul  { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.6em; }
+  .prose-article li  { margin-bottom: 0.4em; line-height: 1.7; color: var(--ink); }
+  .prose-article strong { color: var(--ink); }
+
+  /* ── Buttons ──────────────────────────────────────────────── */
+  .btn-primary {
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: opacity 0.15s;
+    cursor: pointer;
+    border: none;
+  }
   .btn-primary:hover { opacity: 0.75; }
-  .btn-primary:disabled { opacity: 0.4; }
-  .input-field { width: 100%; border: 1px solid #E8E4DC; background: white; padding: 10px 16px; font-size: 14px; color: #1A1814; font-family: 'Inter', sans-serif; border-radius: 2px; outline: none; transition: border-color 0.15s; }
-  .input-field::placeholder { color: #B0A99E; }
-  .input-field:focus { border-color: #1A1814; }
-  .input-label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #706B61; margin-bottom: 6px; }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* ── Form inputs ──────────────────────────────────────────── */
+  .input-field {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+    padding: 10px 16px;
+    font-size: 14px;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .input-field::placeholder { color: var(--ink-faint); }
+  .input-field:focus { border-color: var(--ink); }
+  .input-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+
+  /* ── Section rule ─────────────────────────────────────────── */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section-rule span {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+  .section-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Ticker ───────────────────────────────────────────────── */
+  .ticker-track {
+    display: flex;
+    animation: ticker-scroll 40s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── Share button ─────────────────────────────────────────── */
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--ink-muted);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .share-btn:hover { border-color: var(--ink); color: var(--ink); background: var(--bg-alt); }
+  .share-btn.copied { border-color: #437A22; color: #437A22; }
 }
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
